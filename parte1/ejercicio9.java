@@ -5,15 +5,14 @@ import java.util.StringTokenizer;
 
 public class ejercicio9 {
     public static void main(String[] args){
-        String frase;
-        Scanner entrada=new Scanner(System.in);
-        StringTokenizer cuenta;
-        int contador;
-
-        System.out.println("Introduzca la frase: ");
-        frase= entrada.nextLine();
-        cuenta=new StringTokenizer(frase);
-        System.out.println("el numero de palabras son: "+cuenta.countTokens());
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Introduzca una frase: ");
+        String texto = scan.nextLine();
+        System.out.println("Introduzca la letra a buscar: ");
+        String caracteraEncontrar = scan.nextLine();
+        System.out.println("La cantidad de "+ " '" + caracteraEncontrar + "'"+ " encontradas en la frase");
+        System.out.println(texto.split(caracteraEncontrar, -1).length-1);
+        scan.close();
 
     }
 }
