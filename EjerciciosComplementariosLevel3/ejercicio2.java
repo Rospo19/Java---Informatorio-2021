@@ -1,18 +1,18 @@
-package ejercicios.complementarios.parte3;
+import java.util.*;
+import java.util.stream.Collectors;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class ejercicio2 {
+public class Ejercicio2 {
     public static void main(String[] args) {
-        List<Long> Numeros = List.of(1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L);
-        List<Long> potenciados = new ArrayList<>();
+        List<Integer> palabras = List.of(1, 2, 3, 4, 5);
 
-        // version enhanced for loop
-        for (Long num : Numeros) {
-            potenciados.add(num * num);
-        }
-        System.out.println(potenciados);
+        List<Integer> palabrasPotencia = palabras.stream()
+                .map(palabra-> Ejercicio2.elevarCuadrado(palabra))
+                .collect(Collectors.toList());
+
+        System.out.println(palabrasPotencia);
+    }
+    public static Integer elevarCuadrado (Integer num){
+        return (int)Math.pow(num, 2);
     }
 }
 
