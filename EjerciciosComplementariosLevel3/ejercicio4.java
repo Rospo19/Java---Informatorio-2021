@@ -1,28 +1,26 @@
-package ejercicios.complementarios.parte3;
+import java.util.*;
+import java.util.stream.Collectors;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-public class ejercicio4 {
+public class Ejercicio4 {
     public static void main(String[] args) {
-        List<Integer> numeros = List.of(1, 2, 4, 4, 4);
-        Set<Integer> numerosSinRepetir = new HashSet<>(numeros);
-        List<Integer> factoriales = new ArrayList<>();
+        List<Integer> palabras = List.of(1, 2, 4, 4, 4);
 
+        Set<Integer> palabrasSinRepetir = palabras.stream()
+                .collect(Collectors.toSet());
 
-        for (Integer num : numerosSinRepetir) {
-            factoriales.add(factorial(num));
-        }
-        System.out.println(factoriales);
+        Set<Integer> palabrasFactorial = palabrasSinRepetir.stream()
+                .map(palabra-> Ejercicio4.calcularFactorial(palabra))
+                .collect(Collectors.toSet());
+        
+        System.out.println(palabrasFactorial);
     }
 
-    private static int factorial(int n) {
-        if (n <= 1) {
-            return n;
+    public static Integer calcularFactorial(Integer num){
+        int factorial = 1;
+        for (int i = 1; i < num; i++) {
+             factorial = factorial + factorial*i;
         }
-        return n * factorial(n - 1);
+        return factorial;
     }
 }
 
